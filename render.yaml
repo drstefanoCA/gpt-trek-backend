@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: gpt-trek-backend
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.0

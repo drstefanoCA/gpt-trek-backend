@@ -1,0 +1,10 @@
+{
+  "name": "gpt-trek-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Backend minimo per Actions GPT Trek con ricerca, verifica e generazione GPX.",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "route_id": "route_tiscali_lanaitto_standard",
+    "name": "Tiscali da Lanaitto - Variante standard verificata",
+    "area": "Dorgali, Sardegna",
+    "country": "Italy",
+    "distance_km": 8.7,
+    "elevation_gain_m": 540,
+    "difficulty": "moderate",
+    "route_type": "out_and_back",
+    "keywords": ["tiscali", "lanaitto", "supramonte", "villaggio nuragico"],
+    "source_status": "verified",
+    "source_refs": [
+      "dataset:internal_catalog:v1",
+      "manual_review:supramonte_team:2026-04-17"
+    ],
+    "approved_sources": [
+      "dataset:internal_catalog:v1",
+      "manual_review:supramonte_team:2026-04-17"
+    ],
+    "bounding_box": {
+      "min_lat": 40.224,
+      "max_lat": 40.255,
+      "min_lon": 9.496,
+      "max_lon": 9.538
+    },
+    "geometry_profile": {
+      "continuity_ok": true,
+      "anomalous_jumps_detected": false,
+      "outlier_points_detected": false,
+      "measured_distance_km": 8.68
+    },
+    "waypoints": [
+      {
+        "name": "Parcheggio Lanaitto",
+        "latitude": 40.2471,
+        "longitude": 9.5062,
+        "elevation_m": 198,
+        "waypoint_type": "start"
+      },
+      {
+        "name": "S'Adde",
+        "latitude": 40.2414,
+        "longitude": 9.5135,
+        "elevation_m": 322,
+        "waypoint_type": "fork"
+      },
+      {
+        "name": "Ingresso Tiscali",
+        "latitude": 40.2356,
+        "longitude": 9.5253,
+        "elevation_m": 515,
+        "waypoint_type": "poi"
+      },
+      {
+        "name": "Villaggio di Tiscali",
+        "latitude": 40.235,
+        "longitude": 9.5263,
+        "elevation_m": 521,
+        "waypoint_type": "viewpoint"
+      }
+    ]
+  },
+  {
+    "route_id": "route_baunei_costa_sud_demo",
+    "name": "Baunei Costa Sud - Demo verificata",
+    "area": "Baunei, Sardegna",
+    "country": "Italy",
+    "distance_km": 12.4,
+    "elevation_gain_m": 690,
+    "difficulty": "moderate",
+    "route_type": "loop",
+    "keywords": ["baunei", "costa", "panoramico"],
+    "source_status": "verified",
+    "source_refs": [
+      "dataset:internal_catalog:v1"
+    ],
+    "approved_sources": [
+      "dataset:internal_catalog:v1"
+    ],
+    "bounding_box": {
+      "min_lat": 40.01,
+      "max_lat": 40.05,
+      "min_lon": 9.64,
+      "max_lon": 9.71
+    },
+    "geometry_profile": {
+      "continuity_ok": true,
+      "anomalous_jumps_detected": false,
+      "outlier_points_detected": false,
+      "measured_distance_km": 12.36
+    },
+    "waypoints": [
+      {
+        "name": "Parcheggio iniziale",
+        "latitude": 40.03,
+        "longitude": 9.66,
+        "elevation_m": 120,
+        "waypoint_type": "start"
+      },
+      {
+        "name": "Belvedere sud",
+        "latitude": 40.02,
+        "longitude": 9.68,
+        "elevation_m": 410,
+        "waypoint_type": "viewpoint"
+      }
+    ]
+  }
+]
