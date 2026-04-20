@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Hub | Repository</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="portal-shell">
+    <aside class="portal-sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">PH</div>
+        <div>
+          <p class="eyebrow">Intranet Compliance</p>
+          <h1>Policy Hub</h1>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="index.html">Home</a>
+        <a class="sidebar-link active" href="repository.html">Repository</a>
+      </nav>
+
+      <section class="sidebar-card">
+        <p class="side-label">Ruolo attivo</p>
+        <select id="roleSelect" class="input"></select>
+      </section>
+
+      <section class="sidebar-card">
+        <p class="side-label">Utente attivo</p>
+        <select id="userSelect" class="input"></select>
+      </section>
+
+      <section class="sidebar-card">
+        <p class="side-label">Azioni</p>
+        <div class="stacked-actions">
+          <button id="myDocumentsButton" class="button-secondary block" type="button" hidden style="display:none;">I miei documenti</button>
+          <a id="newDocumentLink" class="button-secondary block" href="editor.html" hidden style="display:none;">Nuovo documento</a>
+          <button id="exportButton" class="button-secondary block" type="button">Esporta archivio</button>
+        </div>
+      </section>
+
+      <p class="build-stamp">Build test 2026-04-20 17:35</p>
+    </aside>
+
+    <main class="portal-main">
+      <header class="sub-hero">
+        <div>
+          <p class="eyebrow hero-eyebrow">Repository documentale</p>
+          <h2>Ricerca e selezione documenti per esigenze di consultazione o workflow</h2>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h3>Filtri principali</h3>
+            <p>Ricerca per titolo, argomento, autore, scadenza e altri parametri significativi.</p>
+          </div>
+          <button id="clearFiltersButton" class="button-secondary" type="button">Azzera filtri</button>
+        </div>
+        <div class="filters-grid">
+          <input id="searchInput" class="input" type="search" placeholder="Ricerca libera">
+          <input id="titleFilter" class="input" type="search" placeholder="Parole nel titolo">
+          <input id="topicFilter" class="input" type="search" placeholder="Argomento / topic">
+          <input id="authorFilter" class="input" type="search" placeholder="Autore">
+          <input id="approverFilter" class="input" type="search" placeholder="Approver">
+          <input id="legalEntityFilter" class="input" type="search" placeholder="Legal Entity">
+          <select id="documentTypeFilter" class="input"><option value="">Tutti i tipi documento</option></select>
+          <select id="stateFilter" class="input"><option value="">Tutti gli stati</option></select>
+          <select id="riskFilter" class="input"><option value="">Tutti i rischi</option></select>
+          <select id="regionFilter" class="input"><option value="">Tutte le regioni</option></select>
+          <input id="issueDateFromFilter" class="input" type="date">
+          <input id="issueDateToFilter" class="input" type="date">
+          <input id="reviewDateToFilter" class="input" type="date">
+          <select id="sortFilter" class="input">
+            <option value="issue_desc">Piu recenti per data di generazione</option>
+            <option value="issue_asc">Piu datati per data di generazione</option>
+            <option value="review_asc">Scadenza piu vicina</option>
+            <option value="review_desc">Scadenza piu lontana</option>
+            <option value="title_asc">Titolo A-Z</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h3>Elenco documenti</h3>
+            <p id="repositorySummary">Repository completo.</p>
+          </div>
+          <span id="resultCount" class="result-badge">0 documenti</span>
+        </div>
+        <div id="repositoryCards" class="repository-card-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="portal-data.js"></script>
+  <script src="repository.js"></script>
+</body>
+</html>
