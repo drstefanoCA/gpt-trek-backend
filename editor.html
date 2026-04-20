@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Hub | Modifica documento</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="portal-shell">
+    <aside class="portal-sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">PH</div>
+        <div>
+          <p class="eyebrow">Intranet Compliance</p>
+          <h1>Policy Hub</h1>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="index.html">Home</a>
+        <a class="sidebar-link" href="repository.html">Repository</a>
+        <a class="sidebar-link active" href="#">Modifica</a>
+      </nav>
+
+      <section class="sidebar-card">
+        <p class="side-label">Ruolo attivo</p>
+        <select id="roleSelect" class="input"></select>
+      </section>
+
+      <section class="sidebar-card">
+        <p class="side-label">Utente attivo</p>
+        <select id="userSelect" class="input"></select>
+      </section>
+
+      <p class="build-stamp">Build test 2026-04-20 17:35</p>
+    </aside>
+
+    <main class="portal-main">
+      <header class="sub-hero">
+        <div>
+          <p class="eyebrow hero-eyebrow">Editor documento</p>
+          <h2 id="editorTitle">Creazione o modifica documento</h2>
+          <p id="editorDescription">Campi precompilati nel caso di modifica; salvataggio con invio al passaggio successivo del workflow.</p>
+        </div>
+      </header>
+
+      <section class="panel">
+        <form id="documentForm" class="editor-grid">
+          <label>
+            <span>Title</span>
+            <input id="formTitle" class="input" required>
+          </label>
+          <label>
+            <span>Policy Producing Function</span>
+            <input id="formFunction" class="input" required>
+          </label>
+          <label>
+            <span>Risk Type</span>
+            <input id="formRiskType" class="input" required>
+          </label>
+          <label>
+            <span>Document Type</span>
+            <input id="formDocumentType" class="input" required>
+          </label>
+          <label>
+            <span>Topic</span>
+            <input id="formTopic" class="input" required>
+          </label>
+          <label>
+            <span>Region</span>
+            <input id="formRegion" class="input" required>
+          </label>
+          <label>
+            <span>Legal Entity</span>
+            <input id="formLegalEntity" class="input" required>
+          </label>
+          <label>
+            <span>Approver</span>
+            <input id="formApprover" class="input" required>
+          </label>
+          <label>
+            <span>Author</span>
+            <input id="formAuthor" class="input" required>
+          </label>
+          <label>
+            <span>Next Review Date</span>
+            <input id="formNextReviewDate" class="input" type="date" required>
+          </label>
+          <label class="full-span">
+            <span>Summary</span>
+            <textarea id="formSummary" class="textarea" rows="3" required></textarea>
+          </label>
+          <label class="full-span">
+            <span>Change Description</span>
+            <input id="formChangeDescription" class="input" required>
+          </label>
+          <label>
+            <span>Main Document (Word/PDF)</span>
+            <input id="formMainDocument" class="input" type="file" accept=".doc,.docx,.pdf">
+            <small id="currentMainDocumentInfo" class="form-help"></small>
+          </label>
+          <label class="full-span">
+            <span>Allegati</span>
+            <input id="formAttachments" class="input" type="file" multiple>
+            <small id="currentAttachmentsInfo" class="form-help"></small>
+            <label class="checkbox-row">
+              <input id="replaceAttachmentsToggle" type="checkbox">
+              <span>Sostituisci completamente gli allegati esistenti</span>
+            </label>
+          </label>
+
+          <div class="editor-actions full-span">
+            <a id="cancelLink" class="button-secondary" href="repository.html">Annulla</a>
+            <button class="button-primary" type="submit">Salva e invia al passaggio successivo</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="portal-data.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
