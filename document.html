@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Hub | Documento</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="portal-shell">
+    <aside class="portal-sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">PH</div>
+        <div>
+          <p class="eyebrow">Intranet Compliance</p>
+          <h1>Policy Hub</h1>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="index.html">Home</a>
+        <a class="sidebar-link" href="repository.html">Repository</a>
+        <a class="sidebar-link active" href="#">Scheda documento</a>
+      </nav>
+
+      <section class="sidebar-card">
+        <p class="side-label">Ruolo attivo</p>
+        <select id="roleSelect" class="input"></select>
+      </section>
+
+      <section class="sidebar-card">
+        <p class="side-label">Utente attivo</p>
+        <select id="userSelect" class="input"></select>
+      </section>
+
+      <p class="build-stamp">Build test 2026-04-20 17:35</p>
+    </aside>
+
+    <main class="portal-main">
+      <div class="breadcrumb-row">
+        <a href="repository.html">Repository</a>
+        <span>/</span>
+        <span id="breadcrumbTitle">Documento</span>
+      </div>
+
+      <header class="document-hero">
+        <div>
+          <p class="eyebrow hero-eyebrow">Scheda documento</p>
+          <h2 id="documentTitle">Titolo documento</h2>
+          <p id="documentSummary" class="hero-copy">Sintesi del documento.</p>
+        </div>
+        <div id="documentActions" class="hero-actions" hidden style="display:none;">
+          <a id="editLink" class="button-secondary" href="editor.html">Modifica documento</a>
+          <button id="approveButton" class="button-primary" type="button">Approva</button>
+          <button id="requestChangesButton" class="button-secondary" type="button">Richiedi modifiche</button>
+          <button id="escalateButton" class="button-secondary" type="button">Escalation GPO</button>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="tabs-row">
+          <a class="tab-link" href="#overview">Overview</a>
+          <a class="tab-link" href="#files">File e allegati</a>
+          <a class="tab-link" href="#workflow">Workflow</a>
+          <a class="tab-link" href="#history">Storico</a>
+          <a class="tab-link" href="#metadata">Metadati</a>
+        </div>
+      </section>
+
+      <section class="panel" id="overview">
+        <div class="panel-header">
+          <h3>Overview documento</h3>
+          <p>Vista sintetica per consultazione rapida.</p>
+        </div>
+        <div id="overviewGrid" class="summary-grid"></div>
+      </section>
+
+      <section class="panel" id="files">
+        <div class="panel-header">
+          <h3>Documento principale e allegati</h3>
+          <p>Accesso diretto ai file del documento.</p>
+        </div>
+        <div id="filesList" class="document-card-list"></div>
+      </section>
+
+      <section class="panel" id="workflow">
+        <div class="panel-header">
+          <h3>Workflow e passaggi successivi</h3>
+          <p>Ruolo corrente, stato e prossima azione richiesta.</p>
+        </div>
+        <div id="workflowBanner" class="status-banner"></div>
+        <div id="actionFeedback" class="action-feedback" hidden></div>
+        <div id="workflowCards" class="document-card-list"></div>
+      </section>
+
+      <section class="panel" id="history">
+        <div class="panel-header">
+          <h3>Storico versioni e audit</h3>
+          <p>Versioni precedenti e principali eventi registrati.</p>
+        </div>
+        <div id="historyList" class="document-card-list"></div>
+        <div id="auditList" class="document-card-list"></div>
+      </section>
+
+      <section class="panel" id="metadata">
+        <div class="panel-header">
+          <h3>Metadati completi</h3>
+          <p>Vista approfondita dei campi del documento.</p>
+        </div>
+        <div id="metadataGrid" class="metadata-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="portal-data.js"></script>
+  <script src="document.js"></script>
+</body>
+</html>
