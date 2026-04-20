@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Hub | Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="portal-shell">
+    <aside class="portal-sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">PH</div>
+        <div>
+          <p class="eyebrow">Intranet Compliance</p>
+          <h1>Policy Hub</h1>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="index.html">Home</a>
+        <a class="sidebar-link" href="repository.html">Repository</a>
+      </nav>
+
+      <section class="sidebar-card">
+        <p class="side-label">Ruolo attivo</p>
+        <select id="roleSelect" class="input"></select>
+      </section>
+
+      <section class="sidebar-card">
+        <p class="side-label">Utente attivo</p>
+        <select id="userSelect" class="input"></select>
+        <p class="side-helper">La home si aggiorna in base al ruolo selezionato.</p>
+      </section>
+
+      <p class="build-stamp">Build test 2026-04-20 17:35</p>
+    </aside>
+
+    <main class="portal-main">
+      <header class="hero-panel">
+        <div>
+          <p class="eyebrow hero-eyebrow">Portale Normativa Interna</p>
+          <h2>Accesso unificato alla normativa interna per tutti i ruoli</h2>
+          <p class="hero-copy">
+            Schermata iniziale orientata alla consultazione: profilo ruolo, campi di ricerca evidenti,
+            accesso rapido ai documenti e navigazione dedicata verso la scheda documento.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="button-primary" href="repository.html">Apri repository</a>
+          <a id="newDocumentLink" class="button-secondary" href="editor.html" hidden style="display:none;">Nuovo documento</a>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h3>Ricerca rapida</h3>
+            <p>I principali campi di ricerca sono subito in evidenza per tutti i dipendenti.</p>
+          </div>
+        </div>
+        <div class="filters-grid home-search-grid">
+          <input id="quickTitle" class="input" type="search" placeholder="Titolo documento">
+          <input id="quickTopic" class="input" type="search" placeholder="Argomento / topic">
+          <input id="quickAuthor" class="input" type="search" placeholder="Autore">
+          <input id="quickApprover" class="input" type="search" placeholder="Approver">
+          <select id="quickState" class="input">
+            <option value="">Tutti gli stati</option>
+          </select>
+          <select id="quickType" class="input">
+            <option value="">Tutti i tipi documento</option>
+          </select>
+        </div>
+        <div class="quick-actions-row">
+          <button id="searchRepositoryButton" class="button-primary" type="button">Cerca nel repository</button>
+          <button id="myDocumentsButton" class="button-secondary" type="button" hidden style="display:none;">Vai ai miei documenti</button>
+        </div>
+      </section>
+
+      <section class="kpi-grid">
+        <article class="kpi-card">
+          <p>Documenti vigenti</p>
+          <strong id="publishedCount">0</strong>
+          <span>Disponibili per consultazione</span>
+        </article>
+        <article class="kpi-card">
+          <p>In approvazione</p>
+          <strong id="approvalCount">0</strong>
+          <span>Richiedono un passaggio operativo</span>
+        </article>
+        <article class="kpi-card alert">
+          <p>Scadenze critiche</p>
+          <strong id="overdueCount">0</strong>
+          <span>Documenti overdue o in ritardo</span>
+        </article>
+        <article class="kpi-card">
+          <p>Archivio completo</p>
+          <strong id="totalCount">0</strong>
+          <span>Documenti totali nel portale</span>
+        </article>
+      </section>
+
+      <section class="two-column-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Vista ruolo</h3>
+            <p id="roleDescription">Descrizione del ruolo attivo.</p>
+          </div>
+          <div id="roleHighlights" class="highlight-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Documenti rilevanti</h3>
+            <p id="relevantDescription">Lista sintetica coerente con ruolo e utente attivo.</p>
+          </div>
+          <div id="relevantDocuments" class="document-card-list"></div>
+        </section>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>Percorso utente</h3>
+          <p>Ogni ruolo accede a una profondita diversa del documento, su pagine separate.</p>
+        </div>
+        <div class="journey-grid">
+          <article class="journey-card">
+            <strong>1. Home di ruolo</strong>
+            <span>Impostazione del ruolo, utente attivo, ricerca rapida e sintesi dei documenti rilevanti.</span>
+          </article>
+          <article class="journey-card">
+            <strong>2. Repository documentale</strong>
+            <span>Elenco documenti completo, filtrabile e ordinabile per data di generazione, scadenze e metadati.</span>
+          </article>
+          <article class="journey-card">
+            <strong>3. Scheda documento</strong>
+            <span>Pagina dedicata con overview, file principale, allegati, workflow, storico versioni e metadati.</span>
+          </article>
+          <article class="journey-card">
+            <strong>4. Pagina di modifica</strong>
+            <span>Autore e approver possono intervenire su una pagina dedicata, con campi precompilati nel caso di modifica.</span>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="portal-data.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>
