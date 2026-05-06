@@ -1,0 +1,30 @@
+{
+  "tenant": "Da definire",
+  "currency": "EUR",
+  "events": [
+    {
+      "date": "2026-01-05",
+      "type": "rent_due",
+      "amount": 750,
+      "description": "Canone gennaio 2026"
+    },
+    {
+      "date": "2026-01-12",
+      "type": "payment",
+      "amount": 400,
+      "description": "Bonifico parziale"
+    },
+    {
+      "date": "2026-02-05",
+      "type": "rent_due",
+      "amount": 750,
+      "description": "Canone febbraio 2026"
+    },
+    {
+      "date": "2026-02-20",
+      "type": "payment",
+      "amount": 900,
+      "description": "Saldo e acconto"
+    }
+  ]
+}
