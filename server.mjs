@@ -7,8 +7,10 @@ const PORT = Number(process.env.PORT || 8787);
 const HOST = process.env.HOST || "0.0.0.0";
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 const ROUTES_PATH = new URL("./data/routes.json", import.meta.url);
+const RENT_LEDGER_PATH = new URL("./data/prospetto_pagamento_affitti.json", import.meta.url);
 
 const routes = JSON.parse(await readFile(ROUTES_PATH, "utf8"));
+const rentLedger = JSON.parse(await readFile(RENT_LEDGER_PATH, "utf8"));
 const builtFiles = new Map();
 
 function sendJson(res, statusCode, payload) {
@@ -138,6 +140,58 @@ function summarizeChecks(sourceStatus, geometryStatus, waypointStatus) {
   ];
 }
 
+function toSignedAmount(event) {
+  if (event.type === "rent_due") {
+    return Number(event.amount);
+  }
+
+  if (event.type === "payment") {
+    return -Number(event.amount);
+  }
+
+  return Number(event.amount) || 0;
+}
+
+function buildRentLedgerSummary(ledger) {
+  const sortedEvents = [...(ledger.events || [])].sort((a, b) => a.date.localeCompare(b.date));
+  let progressiveDebt = 0;
+  let totalRentDue = 0;
+  let totalPayments = 0;
+
+  const timeline = sortedEvents.map((event) => {
+    const signedAmount = toSignedAmount(event);
+    progressiveDebt += signedAmount;
+
+    if (event.type === "rent_due") {
+      totalRentDue += Number(event.amount);
+    }
+
+    if (event.type === "payment") {
+      totalPayments += Number(event.amount);
+    }
+
+    return {
+      date: event.date,
+      type: event.type,
+      description: event.description,
+      amount: Number(event.amount),
+      delta_debt: signedAmount,
+      progressive_debt: Number(progressiveDebt.toFixed(2))
+    };
+  });
+
+  return {
+    tenant: ledger.tenant || "N/D",
+    currency: ledger.currency || "EUR",
+    totals: {
+      total_rent_due: Number(totalRentDue.toFixed(2)),
+      total_payments: Number(totalPayments.toFixed(2)),
+      current_debt: Number(progressiveDebt.toFixed(2))
+    },
+    timeline
+  };
+}
+
 const server = http.createServer(async (req, res) => {
   if (!req.url) {
     sendJson(res, 400, { error: "Missing URL" });
@@ -164,6 +218,11 @@ const server = http.createServer(async (req, res) => {
         routes_loaded: routes.length,
         date: new Date().toISOString()
       });
+      return;
+    }
+
+    if (req.method === "GET" && url.pathname === "/rent_ledger") {
+      sendJson(res, 200, buildRentLedgerSummary(rentLedger));
       return;
     }
 

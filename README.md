@@ -9,11 +9,13 @@ Questo progetto fornisce un backend minimo e reale per le Actions del GPT Trek.
 - include due rotte demo, tra cui `Tiscali da Lanaitto`;
 - genera un file GPX scaricabile dopo il build;
 - permette di distinguere errori infrastrutturali da blocchi di certificazione.
+- espone anche un endpoint `GET /rent_ledger` che organizza il prospetto affitti per data e calcola il debito progressivo.
 
 ## File principali
 
 - `server.mjs`: server HTTP senza dipendenze esterne;
 - `data/routes.json`: catalogo minimo delle rotte verificate;
+- `data/prospetto_pagamento_affitti.json`: dataset locale del prospetto affitti (canoni dovuti + pagamenti);
 - `package.json`: script di avvio.
 
 ## Avvio locale
@@ -49,6 +51,18 @@ POST /search_verified_routes
   "keywords": ["tiscali", "lanaitto"]
 }
 ```
+
+Prospetto affitti:
+
+```text
+GET http://localhost:8787/rent_ledger
+```
+
+L'output contiene:
+- timeline ordinata per data;
+- delta del debito per evento;
+- debito progressivo;
+- totale canoni dovuti, totale pagamenti e debito residuo.
 
 ## Collegamento al GPT
 
